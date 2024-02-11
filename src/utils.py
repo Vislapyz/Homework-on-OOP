@@ -4,7 +4,7 @@ class Category:
     """
     title: str
     description: str
-    products: list
+    __products: list
     total_categories = 0
     total_unique_products = 0
 
@@ -14,10 +14,13 @@ class Category:
         """
         self.title = title
         self.description = description
-        self.products = products
+        self.__products = products
 
         Category.total_categories += 1
         Category.total_unique_products += 1
+
+    def adding_products(self, product):
+        self.__products.append(product)
 
 
 class Product:
