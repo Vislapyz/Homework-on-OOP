@@ -20,6 +20,9 @@ class Category:
         Category.total_unique_products += 1
 
     def adding_products(self, product):
+        """
+        Mетод принимает на вход объект товара и добавлять его в список
+        """
         self.__products.append(product)
 
 
