@@ -52,3 +52,21 @@ class Product:
         self.description = description
         self.price = price
         self.in_stock = in_stock
+
+    @classmethod
+    def creates_product(cls, title, description, price, in_stock):
+        """
+        Cоздает товар и возвращает объект, который можно добавлять в список товаров.
+        """
+        return cls(title, description, price, in_stock)
+
+    @property
+    def price(self):
+        return self.price
+
+    @price.setter
+    def new_price(self, new_price):
+        if new_price <= 0:
+            print('цена введена некорректная')
+
+
