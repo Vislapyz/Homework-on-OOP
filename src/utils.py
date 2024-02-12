@@ -25,6 +25,15 @@ class Category:
         """
         self.__products.append(product)
 
+    @property
+    def get_list_product(self):
+        """
+        Геттер, который выводить список товаров в формате:
+        Продукт, 80 руб. Остаток: 15 шт.
+        """
+        for product in self.__products:
+            return f'{product.title}, {product.price} руб. Остаток: {product.in_stock} шт.'
+
 
 class Product:
     """
