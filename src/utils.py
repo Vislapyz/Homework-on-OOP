@@ -31,9 +31,10 @@ class Category:
         Геттер, который выводить список товаров в формате:
         Продукт, 80 руб. Остаток: 15 шт.
         """
+        list_product = []
         for product in self.__products:
-            return f'{product.title}, {product.price} руб. Остаток: {product.in_stock} шт.'
-
+            list_product.append( f'{product.title}, {product.price} руб. Остаток: {product.in_stock} шт.')
+            return list_product
 
 class Product:
     """
@@ -68,5 +69,9 @@ class Product:
     def new_price(self, new_price):
         if new_price <= 0:
             print('цена введена некорректная')
+
+    @price.setter
+    def price(self, value):
+        self._price = value
 
 
