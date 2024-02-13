@@ -12,6 +12,7 @@ class Category:
         """
         Метод для инициализации экземпляра класса
         """
+        self.products = None
         self.title = title
         self.description = description
         self.__products = products
