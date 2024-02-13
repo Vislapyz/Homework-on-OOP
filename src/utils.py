@@ -69,6 +69,8 @@ class Product:
     def new_price(self, new_price):
         if new_price <= 0:
             print('цена введена некорректная')
+        else:
+            self.price = new_price
 
     @price.setter
     def price(self, value):

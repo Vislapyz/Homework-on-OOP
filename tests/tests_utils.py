@@ -10,7 +10,7 @@ def category_tv():
 def test_init(category_tv):
     assert category_tv.title == 'Телевизор'
     assert category_tv.description == 'Современные телевизоры'
-    assert category_tv.products == ['LG', 'Xiaomi', 'Samsung']
+    assert category_tv.__products == ['LG', 'Xiaomi', 'Samsung']
     assert Category.total_categories == 1
     assert Category.total_unique_products == 3
 
