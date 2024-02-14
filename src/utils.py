@@ -35,7 +35,7 @@ class Category:
         list_product = []
         for product in self.__products:
             list_product.append( f'{product.title}, {product.price} руб. Остаток: {product.in_stock} шт.')
-            return list_product
+        return list_product
 
 class Product:
     """
@@ -52,7 +52,7 @@ class Product:
         """
         self.title = title
         self.description = description
-        self.price = price
+        self.__price = price
         self.in_stock = in_stock
 
     @classmethod
@@ -64,7 +64,7 @@ class Product:
 
     @property
     def price(self):
-        return self.price
+        return self.__price
 
     @price.setter
     def new_price(self, new_price):
@@ -73,8 +73,5 @@ class Product:
         else:
             self.price = new_price
 
-    @price.setter
-    def price(self, value):
-        self._price = value
 
 
