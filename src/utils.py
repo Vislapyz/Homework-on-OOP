@@ -71,7 +71,7 @@ class Product:
         if new_price <= 0:
             print('цена введена некорректная')
         else:
-            self.price = new_price
+            self.__price = new_price
 
 
 
