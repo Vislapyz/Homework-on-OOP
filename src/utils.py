@@ -80,6 +80,9 @@ class Product:
         """
         return f'{self.title},{self.price} руб. Остаток: {self.in_stock}'
 
+    def __add__(self, other):
+        return self.price * self.in_stock + other.price * other.in_stock
+
     @classmethod
     def creates_product(cls, title, description, price, in_stock):
         """
