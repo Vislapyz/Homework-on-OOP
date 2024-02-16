@@ -12,13 +12,11 @@ class Category:
         """
         Метод для инициализации экземпляра класса
         """
-        self.products = None
         self.title = title
         self.description = description
         self.__products = products
-
         Category.total_categories += 1
-        Category.total_unique_products += 1
+        Category.total_unique_products += len(products)
 
     def adding_products(self, product):
         """
@@ -34,8 +32,14 @@ class Category:
         """
         list_product = []
         for product in self.__products:
-            list_product.append( f'{product.title}, {product.price} руб. Остаток: {product.in_stock} шт.')
+            list_product.append(f'{product.title}, {product.price} руб. Остаток: {product.in_stock} шт.')
         return list_product
+
+    def all_products(self):
+        """Для всех продуктов в списке класс Category
+        """
+        return self.__products
+
 
 class Product:
     """
@@ -55,6 +59,14 @@ class Product:
         self.__price = price
         self.in_stock = in_stock
 
+    def __str__(self):
+        """
+        Для класса Product добавить строковое отображение
+        """
+        return f'{self.title},{self.price} руб. Остаток: {self.in_stock}'
+
+
+
     @classmethod
     def creates_product(cls, title, description, price, in_stock):
         """
@@ -67,11 +79,8 @@ class Product:
         return self.__price
 
     @price.setter
-    def new_price(self, new_price):
+    def price(self, new_price):
         if new_price <= 0:
             print('цена введена некорректная')
         else:
             self.__price = new_price
-
-
-
