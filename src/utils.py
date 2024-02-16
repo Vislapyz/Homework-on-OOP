@@ -18,6 +18,21 @@ class Category:
         Category.total_categories += 1
         Category.total_unique_products += len(products)
 
+    def __str__(self):
+        """
+        Класс Category возрощает строковое представление
+        """
+        return f'{self.title}, количество продуктов {len(self)} шт.'
+
+    def __len__(self):
+        """
+        Общее количество всех товаров
+        """
+        all_product = 0
+        for product in self.all_products():
+            all_product += int(product.in_stock)
+        return all_product
+
     def adding_products(self, product):
         """
         Mетод принимает на вход объект товара и добавлять его в список
@@ -64,8 +79,6 @@ class Product:
         Для класса Product добавить строковое отображение
         """
         return f'{self.title},{self.price} руб. Остаток: {self.in_stock}'
-
-
 
     @classmethod
     def creates_product(cls, title, description, price, in_stock):
