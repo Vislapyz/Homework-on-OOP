@@ -100,3 +100,23 @@ class Product:
             print('цена введена некорректная')
         else:
             self.__price = new_price
+
+
+class Smartphones(Product):
+    """
+    Класс смартфон наследние от класса Product
+    """
+    efficiency: str
+    model: str
+    internal_memory: str
+    colour: str
+
+
+
+class LawnGrass(Product):
+    """
+    Класс трава газонная наследние от класса Product
+    """
+    production: str
+    germination: str
+    colour: str
