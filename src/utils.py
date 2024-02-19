@@ -12,7 +12,6 @@ class Category:
         """
         Метод для инициализации экземпляра класса
         """
-        self.products = None
         self.title = title
         self.description = description
         self.__products = products
@@ -36,6 +35,11 @@ class Category:
         for product in self.__products:
             list_product.append( f'{product.title}, {product.price} руб. Остаток: {product.in_stock} шт.')
         return list_product
+
+    def all_products(self):
+        """Для всех продуктов в списке класс Category
+        """
+        return self.__products
 
 class Product:
     """
