@@ -106,11 +106,17 @@ class Smartphones(Product):
     """
     Класс смартфон наследние от класса Product
     """
-    efficiency: str
+    efficiency: float
     model: str
     internal_memory: str
     colour: str
 
+    def __init__(self, efficiency, model, internal_memory, colour, title, description, price, in_stock):
+        super().__init__(title, description, price, in_stock)
+        self.efficiency = efficiency
+        self.model = model
+        self.internal_memory = internal_memory
+        self.colour = colour
 
 
 class LawnGrass(Product):
@@ -120,3 +126,9 @@ class LawnGrass(Product):
     production: str
     germination: str
     colour: str
+
+    def __init__(self, production, germination, colour, title, description, price, in_stock):
+        super().__init__(title, description, price, in_stock)
+        self.production = production
+        self.germination = germination
+        self.colour = colour
