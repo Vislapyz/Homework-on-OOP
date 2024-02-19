@@ -18,7 +18,7 @@ class Category:
         self.__products = products
 
         Category.total_categories += 1
-        Category.total_unique_products += 1
+        Category.total_unique_products += len(products)
 
     def adding_products(self, product):
         """
