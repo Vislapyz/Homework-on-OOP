@@ -64,8 +64,9 @@ class Product:
     description: str
     price: float
     in_stock: int
+    color: int
 
-    def __init__(self, title, description, price, in_stock):
+    def __init__(self, title, description, price, in_stock, color):
         """
         Метод для инициализации экземпляра класса
         """
@@ -73,6 +74,7 @@ class Product:
         self.description = description
         self.__price = price
         self.in_stock = in_stock
+        self.color = color
 
     def __str__(self):
         """
@@ -84,11 +86,11 @@ class Product:
         return self.price * self.in_stock + other.price * other.in_stock
 
     @classmethod
-    def creates_product(cls, title, description, price, in_stock):
+    def creates_product(cls, title, description, price, in_stock, color):
         """
         Cоздает товар и возвращает объект, который можно добавлять в список товаров.
         """
-        return cls(title, description, price, in_stock)
+        return cls(title, description, price, in_stock, color)
 
     @property
     def price(self):
@@ -109,14 +111,12 @@ class Smartphones(Product):
     efficiency: float
     model: str
     internal_memory: str
-    colour: str
 
-    def __init__(self, efficiency, model, internal_memory, colour, title, description, price, in_stock):
-        super().__init__(title, description, price, in_stock)
+    def __init__(self, efficiency, model, internal_memory, title, description, price, in_stock, color):
+        super().__init__(title, description, price, in_stock, color)
         self.efficiency = efficiency
         self.model = model
         self.internal_memory = internal_memory
-        self.colour = colour
 
 
 class LawnGrass(Product):
@@ -125,10 +125,8 @@ class LawnGrass(Product):
     """
     production: str
     germination: str
-    colour: str
 
-    def __init__(self, production, germination, colour, title, description, price, in_stock):
-        super().__init__(title, description, price, in_stock)
+    def __init__(self, production, germination, title, description, price, in_stock, color):
+        super().__init__(title, description, price, in_stock, color)
         self.production = production
         self.germination = germination
-        self.colour = colour
