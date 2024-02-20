@@ -37,7 +37,10 @@ class Category:
         """
         Mетод принимает на вход объект товара и добавлять его в список
         """
-        self.__products.append(product)
+        if issubclass(product.__class__, Product):
+            self.__products.append(product)
+            return self.__products
+        raise TypeError('Добавить только продукт')
 
     @property
     def get_list_product(self):
@@ -83,6 +86,11 @@ class Product:
         return f'{self.title},{self.price} руб. Остаток: {self.in_stock}'
 
     def __add__(self, other):
+        """
+        Складывать товары одного класса продукты
+        """
+        if not isinstance(self, other.__class__):
+            raise TypeError('Ошибка типа класса')
         return self.price * self.in_stock + other.price * other.in_stock
 
     @classmethod
@@ -104,7 +112,7 @@ class Product:
             self.__price = new_price
 
 
-class Smartphones(Product):
+class SmartPhones(Product):
     """
     Класс смартфон наследние от класса Product
     """
