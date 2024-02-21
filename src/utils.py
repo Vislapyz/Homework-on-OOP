@@ -8,7 +8,8 @@ class Category:
     total_categories = 0
     total_unique_products = 0
 
-    def __init__(self, title: str,
+    def __init__(self,
+                 title: str,
                  description: str,
                  products: list):
         """
