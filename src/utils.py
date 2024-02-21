@@ -67,9 +67,14 @@ class Product:
     description: str
     price: float
     in_stock: int
-    color: int
+    color: str
 
-    def __init__(self, title, description, price, in_stock, color):
+    def __init__(self,
+                 title: str,
+                 description: str,
+                 price: float,
+                 in_stock: int,
+                 color_c: str):
         """
         Метод для инициализации экземпляра класса
         """
@@ -77,7 +82,7 @@ class Product:
         self.description = description
         self.__price = price
         self.in_stock = in_stock
-        self.color = color
+        self.color_c = color_c
 
     def __str__(self):
         """
@@ -94,11 +99,11 @@ class Product:
         raise TypeError('Ошибка типа класса')
 
     @classmethod
-    def creates_product(cls, title, description, price, in_stock, color):
+    def creates_product(cls, title, description, price, in_stock, color_c):
         """
         Cоздает товар и возвращает объект, который можно добавлять в список товаров.
         """
-        return cls(title, description, price, in_stock, color)
+        return cls(title, description, price, in_stock, color_c)
 
     @property
     def price(self):
@@ -120,8 +125,16 @@ class SmartPhones(Product):
     model: str
     internal_memory: str
 
-    def __init__(self, title, description, price, in_stock, color, efficiency, model, internal_memory):
-        super().__init__(title, description, price, in_stock, color)
+    def __init__(self,
+                 title: str,
+                 description: str,
+                 price: float,
+                 in_stock: int,
+                 color_c: str,
+                 efficiency: float,
+                 model: str,
+                 internal_memory: str):
+        super().__init__(title, description, price, in_stock, color_c)
         self.efficiency = efficiency
         self.model = model
         self.internal_memory = internal_memory
@@ -134,7 +147,14 @@ class LawnGrass(Product):
     production: str
     germination: str
 
-    def __init__(self, title, description, price, in_stock, color, production, germination, ):
-        super().__init__(title, description, price, in_stock, color)
+    def __init__(self,
+                 title: str,
+                 description: str,
+                 price: float,
+                 in_stock: int,
+                 color_c: str,
+                 production: str,
+                 germination: str) -> object:
+        super().__init__(title, description, price, in_stock, color_c)
         self.production = production
         self.germination = germination

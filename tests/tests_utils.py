@@ -25,4 +25,4 @@ def test_init_product(product_xiaomi):
     assert product_xiaomi.description == 'Телевизор 32, смарт ТВ'
     assert product_xiaomi.price == '16000.00'
     assert product_xiaomi.in_stock == '3'
-    assert product_xiaomi.color == 'Bleck'
+    assert product_xiaomi.color_c == 'Bleck'
