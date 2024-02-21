@@ -89,9 +89,9 @@ class Product:
         """
         Складывать товары одного класса продукты
         """
-        if not isinstance(self, other.__class__):
-            raise TypeError('Ошибка типа класса')
-        return self.price * self.in_stock + other.price * other.in_stock
+        if type(self) == type(other):
+            return self.price * self.in_stock + other.price * other.in_stock
+        raise TypeError('Ошибка типа класса')
 
     @classmethod
     def creates_product(cls, title, description, price, in_stock, color):
@@ -120,7 +120,7 @@ class SmartPhones(Product):
     model: str
     internal_memory: str
 
-    def __init__(self, efficiency, model, internal_memory, title, description, price, in_stock, color):
+    def __init__(self, title, description, price, in_stock, color, efficiency, model, internal_memory):
         super().__init__(title, description, price, in_stock, color)
         self.efficiency = efficiency
         self.model = model
@@ -134,7 +134,7 @@ class LawnGrass(Product):
     production: str
     germination: str
 
-    def __init__(self, production, germination, title, description, price, in_stock, color):
+    def __init__(self, title, description, price, in_stock, color, production, germination, ):
         super().__init__(title, description, price, in_stock, color)
         self.production = production
         self.germination = germination
