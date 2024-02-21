@@ -8,7 +8,9 @@ class Category:
     total_categories = 0
     total_unique_products = 0
 
-    def __init__(self, title, description, products):
+    def __init__(self, title: str,
+                 description: str,
+                 products: list):
         """
         Метод для инициализации экземпляра класса
         """
@@ -154,7 +156,7 @@ class LawnGrass(Product):
                  in_stock: int,
                  color_c: str,
                  production: str,
-                 germination: str) -> object:
+                 germination: str):
         super().__init__(title, description, price, in_stock, color_c)
         self.production = production
         self.germination = germination
