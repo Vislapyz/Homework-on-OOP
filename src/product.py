@@ -16,7 +16,7 @@ class AllProducts(ABC):
 
     class ForAllClassesMixin:
         def __repr__(self):
-            pass
+            return f'создан объект{self.__class__.__name__}'
 
 
 class Product(AllProducts):
