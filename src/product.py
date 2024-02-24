@@ -16,7 +16,7 @@ class AllProducts(ABC):
 
     class ForAllClassesMixin:
         def __repr__(self):
-            object_attributes: = ''
+            object_attributes = ''
             for k, v in self.__dict__.items():
                 object_attributes += f'{k}: {v},'
             return object_attributes
