@@ -14,14 +14,16 @@ class AllProducts(ABC):
     def __add__(self, other):
         pass
 
-    class ForAllClassesMixin:
-        def __repr__(self):
-            object_attributes = ''
-            for k, v in self.__dict__.items():
-                object_attributes += f'{k}: {v},'
-            return object_attributes
 
-class Product(AllProducts):
+class ForAllClassesMixin:
+    def __repr__(self):
+        object_attributes = ''
+        for k, v in self.__dict__.items():
+            object_attributes += f'создан объект{self.__class__.__name__} {k}: {v},'
+        return object_attributes
+
+
+class Product(ForAllClassesMixin, AllProducts):
     """
     Класс продукций и количества
     """
@@ -79,7 +81,7 @@ class Product(AllProducts):
             self.__price = new_price
 
 
-class SmartPhones(Product):
+class SmartPhones(Product, ForAllClassesMixin):
     """
     Класс смартфон наследние от класса Product
     """
@@ -102,7 +104,7 @@ class SmartPhones(Product):
         self.internal_memory = internal_memory
 
 
-class LawnGrass(Product):
+class LawnGrass(Product, ForAllClassesMixin):
     """
     Класс трава газонная наследние от класса Product
     """
