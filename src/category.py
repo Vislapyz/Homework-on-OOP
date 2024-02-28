@@ -65,3 +65,13 @@ class Category:
         """Для всех продуктов в списке класс Category
         """
         return self.__products
+
+    def average_price_products(self):
+        """
+        Метод подсчитывает средний ценник всех товаров
+        """
+        try:
+            average = [i.price for i in self.all_products()]
+            return sum(average) / len(average)
+        except ZeroDivisionError:
+            return 0
