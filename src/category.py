@@ -1,3 +1,6 @@
+from src.product import Product
+
+
 class Category:
     """
     Класс категорий продукции
@@ -40,7 +43,9 @@ class Category:
         """
         Mетод принимает на вход объект товара и добавлять его в список
         """
-        if issubclass(product.__class__, Product):
+        if isinstance(product, Product):
+            if product.in_stock == 0:
+                raise ValueError('Товар с нулевым количеством не может быть добавлен')
             self.__products.append(product)
             return self.__products
         raise TypeError('Добавить только продукт')
